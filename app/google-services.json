@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "818057945461",
+    "firebase_url": "https://movies-diary.firebaseio.com",
+    "project_id": "movies-diary",
+    "storage_bucket": "movies-diary.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818057945461:android:9725af33e3b3f7d4",
+        "android_client_info": {
+          "package_name": "com.rushiti.endrit.moviesdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818057945461-k1q1kit2jtse920d5um8q9eitm24qdpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOaFMw9j22vfm1OY2xfbmR_YOhh7y790w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

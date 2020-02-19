@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="3dp"
+        app:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="0dp"
+            android:background="#063852">
+
+            <TextView
+                android:id="@+id/MovieName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Movie Name"
+                android:textAlignment="center"
+                android:layout_marginTop="12dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/roboto_bold"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp" />
+            <TextView
+                android:id="@+id/Movie_Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="12dp"
+                android:text="Description"
+                android:textSize="14dp"
+                android:textColor="#ffffff"/>
+
+            <ImageView
+                android:id="@+id/Movie_RatingIcon"
+                android:layout_width="38dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ratingicon"
+                android:layout_marginTop="65dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp" />
+            <TextView
+                android:id="@+id/Movie_Rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rating"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_toRightOf="@id/Movie_RatingIcon"
+                android:layout_marginTop="70dp"
+                android:textSize="16sp"
+                android:layout_toEndOf="@id/Movie_RatingIcon" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</LinearLayout>
