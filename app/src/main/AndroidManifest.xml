@@ -28,10 +28,13 @@
             android:name="google_analytics_adid_collection_enabled"
             android:value="false" />
 
-        <activity android:name=".MainActivity" />
-        <activity android:name=".WatchedMovie" />
-        <activity android:name=".Watched_MoviesList" />
-        <activity android:name=".SplashScreen">
+        <activity android:name=".ui.MainActivity">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name=".ui.rating.RatingMovieActivity" />
+        <activity android:name=".ui.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
