@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorBackground"
+    android:background="?attr/backgroundColor"
     android:padding="8dp">
 
     <CheckBox
         android:id="@+id/checkbox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/LightTheme.DarkControlNormal"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp" />
 
@@ -27,7 +28,6 @@
         android:layout_toEndOf="@id/checkbox1"
         android:layout_toRightOf="@id/checkbox1"
         android:text="Film Title"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-        android:textColor="#ffffff"
+        android:textColor="?attr/textColor"
         android:textSize="20sp" />
 </RelativeLayout>

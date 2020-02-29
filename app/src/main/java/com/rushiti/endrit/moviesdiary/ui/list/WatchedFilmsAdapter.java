@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rushiti.endrit.moviesdiary.R;
+import com.rushiti.endrit.moviesdiary.db.Filmat;
 import com.rushiti.endrit.moviesdiary.db.FilmateShikuara;
 
 import java.util.ArrayList;
@@ -18,12 +19,13 @@ import java.util.List;
 
 public class WatchedFilmsAdapter extends RecyclerView.Adapter<WatchedFilmsAdapter.MyViewHolder> implements Filterable {
 
-    private List<FilmateShikuara> mData;
+    private List<FilmateShikuara> mData = new ArrayList<>();
     private List<FilmateShikuara> mDataFull;
 
-    public WatchedFilmsAdapter(List<FilmateShikuara> mData) {
-        this.mData = mData;
-        mDataFull = new ArrayList<>(mData);
+    public void setList(List<FilmateShikuara> filmsList) {
+        this.mData.clear();
+        this.mData.addAll(filmsList);
+        mDataFull = new ArrayList<>(filmsList);
     }
 
     @Override
@@ -40,7 +42,7 @@ public class WatchedFilmsAdapter extends RecyclerView.Adapter<WatchedFilmsAdapte
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (FilmateShikuara item : mDataFull) {
+                for (FilmateShikuara item : mData) {
                     if (item.getEmri().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }

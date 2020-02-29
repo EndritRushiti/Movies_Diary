@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBackground">
+        android:background="?attr/backgroundColor">
 
         <TextView
             android:id="@+id/MovieName"
@@ -19,7 +19,7 @@
             android:fontFamily="@font/roboto_bold"
             android:text="Movie Name"
             android:textAlignment="center"
-            android:textColor="#ffffff"
+            android:textColor="?attr/textColor"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -32,7 +32,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
             android:text="Description"
-            android:textColor="#ffffff"
+            android:textColor="?attr/textColor"
             android:textSize="14sp" />
 
         <ImageView
@@ -44,7 +44,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="4dp"
             android:src="@drawable/rate_film"
-            android:tint="#FFEB3B"/>
+            android:tint="?attr/colorRateStar"/>
 
         <TextView
             android:id="@+id/Movie_Rating"
@@ -58,7 +58,7 @@
             android:layout_toEndOf="@id/Movie_RatingIcon"
             android:layout_toRightOf="@id/Movie_RatingIcon"
             android:text="Rating"
-            android:textColor="#ffffff"
+            android:textColor="?attr/textColor"
             android:textSize="16sp"
             android:textStyle="bold" />
     </RelativeLayout>

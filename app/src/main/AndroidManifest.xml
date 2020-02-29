@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/moviesdiarynewlogo_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/LightTheme">
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <!-- LirimAdmobId :ca-app-pub-4744143765079443~9291563366 -->
         <!-- BannerId : ca-app-pub-4744143765079443/7639516440 -->
@@ -34,6 +34,7 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".ui.rating.RatingMovieActivity" />
+        <activity android:name=".ui.SettingsActivity" />
         <activity android:name=".ui.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

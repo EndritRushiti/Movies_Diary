@@ -23,12 +23,13 @@ import java.util.List;
 
 public class ToWatchFilmsAdapter extends RecyclerView.Adapter<ToWatchFilmsAdapter.ProductViewHolder> implements Filterable {
 
-    private List<Filmat> filmsList;
-    private List<Filmat> mDataFull;
+    private List<Filmat> filmsList = new ArrayList<>();
+    private List<Filmat> filmsFull;
 
-    public ToWatchFilmsAdapter(List<Filmat> filmsList) {
-        this.filmsList = filmsList;
-        mDataFull = new ArrayList<>(filmsList);
+    public void setList(List<Filmat> filmsList) {
+        this.filmsList.clear();
+        this.filmsList.addAll(filmsList);
+        filmsFull = new ArrayList<>(filmsList);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class ToWatchFilmsAdapter extends RecyclerView.Adapter<ToWatchFilmsAdapte
         protected FilterResults performFiltering(CharSequence constraint) {
             List<Filmat> filteredList = new ArrayList<>();
             if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(mDataFull);
+                filteredList.addAll(filmsFull);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
@@ -75,11 +76,11 @@ public class ToWatchFilmsAdapter extends RecyclerView.Adapter<ToWatchFilmsAdapte
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder productViewHolder, int index) {
         final Filmat filmat = filmsList.get(index);
-        productViewHolder.textView.setText(filmat.getTitle());
-        productViewHolder.watchedcheckbox.setOnClickListener(new View.OnClickListener() {
+        productViewHolder.title.setText(filmat.getTitle());
+        productViewHolder.watchedChecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                if (productViewHolder.watchedcheckbox.isChecked()) {
+                if (productViewHolder.watchedChecked.isChecked()) {
                     final Intent intent = new Intent(view.getContext(), RatingMovieActivity.class);
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext())
                             .setTitle("Information")
@@ -87,7 +88,7 @@ public class ToWatchFilmsAdapter extends RecyclerView.Adapter<ToWatchFilmsAdapte
                             .setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
                                 public void onClick(DialogInterface dialog, int which) {
-                                    intent.putExtra("EmriFilmit", productViewHolder.textView.getText().toString());
+                                    intent.putExtra("EmriFilmit", productViewHolder.title.getText().toString());
                                     view.getContext().startActivity(intent);
                                     dialog.dismiss();
                                 }
@@ -95,7 +96,7 @@ public class ToWatchFilmsAdapter extends RecyclerView.Adapter<ToWatchFilmsAdapte
 
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    productViewHolder.watchedcheckbox.setChecked(false);
+                                    productViewHolder.watchedChecked.setChecked(false);
                                     dialog.dismiss();
                                 }
                             });
@@ -112,16 +113,14 @@ public class ToWatchFilmsAdapter extends RecyclerView.Adapter<ToWatchFilmsAdapte
         return filmsList.size();
     }
 
-
     class ProductViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
-        CheckBox watchedcheckbox;
+        TextView title;
+        CheckBox watchedChecked;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            textView = itemView.findViewById(R.id.textViewTitle);
-            watchedcheckbox = itemView.findViewById(R.id.checkbox1);
+            title = itemView.findViewById(R.id.textViewTitle);
+            watchedChecked = itemView.findViewById(R.id.checkbox1);
         }
     }
 }

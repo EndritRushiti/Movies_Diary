@@ -1,16 +1,41 @@
 <resources>
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:editTextColor">@color/colorTint</item>
+    <style name="LightTheme.DarkControlNormal">
+        <item name="colorControlNormal">#9C9C9C</item>
     </style>
 
-    <style name="RatingBar" parent="Theme.AppCompat">
+    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="textColor">@android:color/black</item>
+        <item name="textColorButton">@android:color/white</item>
+        <item name="backgroundColor">@color/colorLightBackground</item>
+        <item name="iconColor">@color/colorLightTint</item>
+        <item name="hintColor">@color/colorLightHint</item>
+        <item name="primaryColor">@color/colorLightPrimary</item>
+        <item name="primaryColorDark">@color/colorLightPrimaryDark</item>
+        <item name="accentColor">@color/colorLightAccent</item>
+        <item name="actionBarTintColor">@color/colorActionBarLightTint</item>
+        <item name="colorPrimary">@color/colorLightPrimary</item>
+        <item name="colorPrimaryDark">@color/colorLightPrimaryDark</item>
+        <item name="colorAccent">@color/colorLightAccent</item>
         <item name="colorControlNormal">#ffffff</item>
         <item name="colorControlActivated">#039be5</item>
+        <item name="colorRateStar">#FF903B</item>
+    </style>
+
+    <style name="DarkTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="textColor">@android:color/white</item>
+        <item name="textColorButton">@android:color/white</item>
+        <item name="backgroundColor">@color/colorDarkBackground</item>
+        <item name="iconColor">@color/colorDarkTint</item>
+        <item name="hintColor">@color/colorDarkHint</item>
+        <item name="primaryColorDark">@color/colorDarkPrimaryDark</item>
+        <item name="primaryColor">@color/colorDarkPrimary</item>
+        <item name="accentColor">@color/colorDarkAccent</item>
+        <item name="actionBarTintColor">@color/colorActionBarDarkTint</item>
+        <item name="colorPrimary">@color/colorDarkPrimary</item>
+        <item name="colorPrimaryDark">@color/colorDarkPrimaryDark</item>
+        <item name="colorAccent">@color/colorDarkAccent</item>
+        <item name="colorControlNormal">#ffffff</item>
+        <item name="colorControlActivated">#039be5</item>
+        <item name="colorRateStar">#FFEB3B</item>
     </style>
 </resources>

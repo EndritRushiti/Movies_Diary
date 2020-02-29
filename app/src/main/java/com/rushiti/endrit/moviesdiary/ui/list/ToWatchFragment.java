@@ -35,9 +35,8 @@ public class ToWatchFragment extends Fragment implements NewFilmAddedCallback {
     @Inject
     SQLiteDatabase db;
     private static final String TAG = "ToWatchFragment";
-    private List<Filmat> productList;
+    private List<Filmat> productList = new ArrayList<>();
     private ToWatchFilmsAdapter filmsToWatchFilmsAdapter;
-    private RecyclerView recyclerView;
 
     public ToWatchFragment() {
         // Required empty public constructor
@@ -86,6 +85,7 @@ public class ToWatchFragment extends Fragment implements NewFilmAddedCallback {
         super.onResume();
         productList.clear();
         readDataBase();
+        filmsToWatchFilmsAdapter.setList(productList);
         filmsToWatchFilmsAdapter.notifyDataSetChanged();
     }
 
@@ -93,11 +93,11 @@ public class ToWatchFragment extends Fragment implements NewFilmAddedCallback {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        productList = new ArrayList<>();
-        recyclerView = view.findViewById(R.id.films_to_watch_recycler);
+        RecyclerView recyclerView = view.findViewById(R.id.films_to_watch_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         readDataBase();
-        filmsToWatchFilmsAdapter = new ToWatchFilmsAdapter(productList);
+        filmsToWatchFilmsAdapter = new ToWatchFilmsAdapter();
+        filmsToWatchFilmsAdapter.setList(productList);
         recyclerView.setAdapter(filmsToWatchFilmsAdapter);
         DividerItemDecoration itemDecorator = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
         itemDecorator.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.recycler_divider));
@@ -116,6 +116,7 @@ public class ToWatchFragment extends Fragment implements NewFilmAddedCallback {
     @Override
     public void dataInserted() {
         readDataBase();
+        filmsToWatchFilmsAdapter.setList(productList);
         filmsToWatchFilmsAdapter.notifyDataSetChanged();
     }
 }

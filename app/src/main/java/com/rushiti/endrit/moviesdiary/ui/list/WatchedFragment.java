@@ -32,7 +32,7 @@ public class WatchedFragment extends Fragment {
     @Inject
     SQLiteDatabase db;
     private static final String TAG = "WatchedFragment";
-    private ArrayList<FilmateShikuara> productList;
+    private ArrayList<FilmateShikuara> productList = new ArrayList<>();
     private WatchedFilmsAdapter adapterWatchedFilms;
 
     public WatchedFragment() {
@@ -61,6 +61,7 @@ public class WatchedFragment extends Fragment {
         super.onResume();
         productList.clear();
         readDatabase();
+        adapterWatchedFilms.setList(productList);
         adapterWatchedFilms.notifyDataSetChanged();
     }
 
@@ -88,11 +89,11 @@ public class WatchedFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        productList = new ArrayList<>();
         RecyclerView recyclerView = view.findViewById(R.id.films_watched_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         readDatabase();
-        adapterWatchedFilms = new WatchedFilmsAdapter(productList);
+        adapterWatchedFilms = new WatchedFilmsAdapter();
+        adapterWatchedFilms.setList(productList);
         recyclerView.setAdapter(adapterWatchedFilms);
         DividerItemDecoration itemDecorator = new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL);
         itemDecorator.setDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.recycler_divider));
