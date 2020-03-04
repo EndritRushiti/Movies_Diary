@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
@@ -20,7 +21,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rushiti.endrit.moviesdiary.ApplicationClass;
+import com.rushiti.endrit.moviesdiary.MoviesDiaryApp;
 import com.rushiti.endrit.moviesdiary.R;
 import com.rushiti.endrit.moviesdiary.db.FilmateShikuara;
 
@@ -46,7 +47,7 @@ public class WatchedFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((ApplicationClass) requireActivity().getApplication()).getComponent().inject(this);
+        ((MoviesDiaryApp) requireActivity().getApplication()).getComponent().inject(this);
         setHasOptionsMenu(true);
     }
 
@@ -80,6 +81,21 @@ public class WatchedFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 adapterWatchedFilms.getFilter().filter(newText);
                 return false;
+            }
+        });
+        menu.findItem(R.id.menu_search).setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem menuItem) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+                productList.clear();
+                readDatabase();
+                adapterWatchedFilms.setList(productList);
+                adapterWatchedFilms.notifyDataSetChanged();
+                return true;
             }
         });
         super.onCreateOptionsMenu(menu, inflater);

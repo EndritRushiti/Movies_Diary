@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
@@ -20,7 +21,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rushiti.endrit.moviesdiary.ApplicationClass;
+import com.rushiti.endrit.moviesdiary.MoviesDiaryApp;
 import com.rushiti.endrit.moviesdiary.ui.dialog.NewFilmAddedCallback;
 import com.rushiti.endrit.moviesdiary.R;
 import com.rushiti.endrit.moviesdiary.db.Filmat;
@@ -49,7 +50,7 @@ public class ToWatchFragment extends Fragment implements NewFilmAddedCallback {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((ApplicationClass) requireActivity().getApplication()).getComponent().inject(this);
+        ((MoviesDiaryApp) requireActivity().getApplication()).getComponent().inject(this);
         ((MainActivity) getActivity()).setCallback(this);
         setHasOptionsMenu(true);
     }
@@ -64,6 +65,21 @@ public class ToWatchFragment extends Fragment implements NewFilmAddedCallback {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         SearchManager searchManager = (SearchManager) requireContext().getSystemService(Context.SEARCH_SERVICE);
         SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+        menu.findItem(R.id.menu_search).setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem menuItem) {
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+                productList.clear();
+                readDataBase();
+                filmsToWatchFilmsAdapter.setList(productList);
+                filmsToWatchFilmsAdapter.notifyDataSetChanged();
+                return true;
+            }
+        });
         searchView.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().getComponentName()));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -77,6 +93,7 @@ public class ToWatchFragment extends Fragment implements NewFilmAddedCallback {
                 return false;
             }
         });
+
         super.onCreateOptionsMenu(menu, inflater);
     }
 

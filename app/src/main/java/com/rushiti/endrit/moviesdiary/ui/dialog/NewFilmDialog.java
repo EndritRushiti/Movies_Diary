@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-import com.rushiti.endrit.moviesdiary.ApplicationClass;
+import com.rushiti.endrit.moviesdiary.MoviesDiaryApp;
 import com.rushiti.endrit.moviesdiary.R;
 
 import javax.inject.Inject;
@@ -32,7 +32,7 @@ public class NewFilmDialog extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ((ApplicationClass) requireActivity().getApplication()).getComponent().inject(this);
+        ((MoviesDiaryApp) requireActivity().getApplication()).getComponent().inject(this);
     }
 
     @NonNull

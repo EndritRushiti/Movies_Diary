@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".ApplicationClass"
+        android:name=".MoviesDiaryApp"
         android:allowBackup="true"
         android:icon="@mipmap/moviesdiarynewlogo"
         android:label="@string/app_name"
@@ -35,7 +35,7 @@
         </activity>
         <activity android:name=".ui.rating.RatingMovieActivity" />
         <activity android:name=".ui.SettingsActivity" />
-        <activity android:name=".ui.SplashScreen">
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

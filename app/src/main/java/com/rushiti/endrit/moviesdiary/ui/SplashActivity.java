@@ -11,13 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.rushiti.endrit.moviesdiary.R;
-import com.rushiti.endrit.moviesdiary.ui.MainActivity;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 
-    ImageView logo;
-    TextView title;
-    Animation animation;
+    private ImageView logo;
+    private TextView title;
+    private Animation animation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class SplashScreen extends AppCompatActivity {
         logo.setAnimation(animation);
         title.setAnimation(animation);
 
-        final Intent i = new Intent(this, MainActivity.class);
+        final Intent intent = new Intent(this, MainActivity.class);
         Thread timer = new Thread() {
             public void run() {
                 try {
@@ -43,7 +42,7 @@ public class SplashScreen extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    startActivity(i);
+                    startActivity(intent);
                     finish();
                 }
             }

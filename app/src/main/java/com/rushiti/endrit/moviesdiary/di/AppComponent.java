@@ -1,5 +1,7 @@
 package com.rushiti.endrit.moviesdiary.di;
 
+import com.rushiti.endrit.moviesdiary.MoviesDiaryApp;
+import com.rushiti.endrit.moviesdiary.ui.SettingsActivity;
 import com.rushiti.endrit.moviesdiary.ui.dialog.NewFilmDialog;
 import com.rushiti.endrit.moviesdiary.ui.list.ToWatchFragment;
 import com.rushiti.endrit.moviesdiary.ui.list.WatchedFragment;
@@ -14,4 +16,6 @@ public interface AppComponent {
     void inject(ToWatchFragment target);
     void inject(WatchedFragment target);
     void inject(NewFilmDialog target);
+    void inject(SettingsActivity target);
+    void inject(MoviesDiaryApp target);
 }
