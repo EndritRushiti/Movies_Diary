@@ -90,6 +90,7 @@ public class ToWatchFilmsAdapter extends RecyclerView.Adapter<ToWatchFilmsAdapte
                                 public void onClick(DialogInterface dialog, int which) {
                                     intent.putExtra("EmriFilmit", productViewHolder.title.getText().toString());
                                     view.getContext().startActivity(intent);
+                                    productViewHolder.watchedChecked.setChecked(false);
                                     dialog.dismiss();
                                 }
                             }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
